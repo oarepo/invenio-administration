@@ -1,12 +1,4 @@
 {
-  "Search ...": "",
-  "There is no resources in this category.": "",
-  "No matching resources found.": "",
-  "results per page": "",
-  "result(s) found": "",
-  "Add": "",
-  "Remove field": "",
-  "Sort": "",
   "Resource is not editable.": "",
   "Edit": "",
   "Resource is not deletable.": "",
@@ -18,6 +10,14 @@
   "Error": "",
   "Server was not able to process your request.": "",
   "Save": "",
+  "Add": "",
+  "Remove field": "",
+  "Sort": "",
   "Search": "",
-  "Clear query": ""
+  "Search ...": "",
+  "There is no resources in this category.": "",
+  "No matching resources found.": "",
+  "Clear query": "",
+  "result(s) found": "",
+  "results per page": ""
 }

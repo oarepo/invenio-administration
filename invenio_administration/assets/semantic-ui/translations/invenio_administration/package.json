@@ -5,7 +5,9 @@
       "en",
       "de",
       "el",
-      "es"
+      "es",
+      "sv",
+      "ar"
     ]
   },
   "devDependencies": {
