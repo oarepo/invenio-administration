@@ -2,6 +2,7 @@
 #
 # This file is part of Invenio.
 # Copyright (C) 2022 CERN.
+# Copyright (C) 2023 Graz University of Technology.
 #
 # Invenio is free software; you can redistribute it and/or modify it
 # under the terms of the MIT License; see LICENSE file for more details.
@@ -28,6 +29,7 @@ class InvenioAdministration:
 
     def init_app(self, app):
         """Initialize application."""
+        self.view_classes = []
         self.init_config(app)
         self.administration = Administration(
             app,
@@ -82,16 +84,9 @@ class InvenioAdministration:
         if issubclass(view_class, AdminResourceBaseView):
             self.register_resource(app, view_class, extension_name)
 
-    @staticmethod
-    def register_resource(app, view_class, extension_name):
+    def register_resource(self, app, view_class, extension_name):
         """Set views schema."""
-
-        @app.before_first_request
-        def register_view_resource():
-            if view_class.resource_config:
-                view_class.set_resource(extension_name=extension_name)
-            if view_class.schema:
-                view_class.set_schema(extension_name=extension_name)
+        self.view_classes.append((view_class, extension_name))
 
     @staticmethod
     def _extract_extension_name(entrypoint_path):
@@ -109,3 +104,16 @@ class InvenioAdministration:
         for k in dir(config):
             if k.startswith("ADMINISTRATION_"):
                 app.config.setdefault(k, getattr(config, k))
+
+
+def finalize_app(app):
+    """Finalize the app."""
+    view_classes = app.extensions["invenio-administration"].view_classes
+
+    for view_class, extension_name in view_classes:
+        if view_class.resource_config:
+            view_class.set_resource(extension_name=extension_name)
+        if view_class.schema:
+            view_class.set_schema(extension_name=extension_name)
+
+    app.extensions["invenio-administration"].administration.init_menu()

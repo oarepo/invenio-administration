@@ -2,6 +2,7 @@
 #
 # This file is part of Invenio.
 # Copyright (C) 2022-2024 CERN.
+# Copyright (C) 2023-2024 Graz University of Technology.
 #
 # Invenio is free software; you can redistribute it and/or modify it
 # under the terms of the MIT License; see LICENSE file for more details.
@@ -62,10 +63,13 @@ class Administration:
         if self.dashboard_view_class is not None:
             self._add_dashboard_view()
 
-        @app.before_first_request
-        def init_menu():
-            self._menu.register_menu_entries(current_menu, self._menu_key)
-            self._menu.register_admin_entry(current_menu, self.endpoint)
+    def init_menu(self):
+        """Finalize app.
+
+        This method will be called within the finalize_app entrypoint.
+        """
+        self._menu.register_menu_entries(current_menu, self._menu_key)
+        self._menu.register_admin_entry(current_menu, self.endpoint)
 
     def load_admin_dashboard(self, app):
         """Load dashboard view configuration."""
@@ -104,12 +108,6 @@ class Administration:
             view_func=view,
         )
 
-        from invenio_administration.views.base import (
-            AdminFormView,
-            AdminResourceDetailView,
-        )
-
-        # TODO change to be configurable
         if not isinstance(view_instance, AdminResourceDetailView) and not isinstance(
             view_instance, AdminFormView
         ):
