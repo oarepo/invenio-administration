@@ -7,6 +7,7 @@
 # Translators:
 # Tibor Simko <tibor.simko@cern.ch>, 2022
 # Sam Arbid, 2022
+# Rim Sharif, 2023
 # 
 #, fuzzy
 msgid ""
@@ -15,8 +16,8 @@ msgstr ""
 "Report-Msgid-Bugs-To: info@inveniosoftware.org\n"
 "POT-Creation-Date: 2022-10-12 09:22+0200\n"
 "PO-Revision-Date: 2022-10-12 07:22+0000\n"
-"Last-Translator: Sam Arbid, 2022\n"
-"Language-Team: Swedish (https://www.transifex.com/inveniosoftware/teams/23537/sv/)\n"
+"Last-Translator: Rim Sharif, 2023\n"
+"Language-Team: Swedish (https://app.transifex.com/inveniosoftware/teams/23537/sv/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -114,7 +115,7 @@ msgstr "Logga in"
 
 #: invenio_administration/templates/semantic-ui/invenio_administration/header/header_login.html:21
 msgid "Sign up"
-msgstr "Skriva upp"
+msgstr "Registrera konto"
 
 #: invenio_administration/templates/semantic-ui/invenio_administration/header/header_login.html:32
 #: invenio_administration/templates/semantic-ui/invenio_administration/header/header_login.html:41
@@ -123,7 +124,7 @@ msgstr "Nytt OAI-PMH set"
 
 #: invenio_administration/templates/semantic-ui/invenio_administration/header/header_login.html:38
 msgid "Actions"
-msgstr "Aktioner"
+msgstr "Åtgärder"
 
 #: invenio_administration/templates/semantic-ui/invenio_administration/header/header_login.html:52
 #: invenio_administration/templates/semantic-ui/invenio_administration/header/header_login.html:93
@@ -138,4 +139,4 @@ msgstr "Logga ut"
 
 #: invenio_administration/templates/semantic-ui/invenio_administration/header/side_bar_toggle.html:1
 msgid "Toggle side menu"
-msgstr "Växla sidomenyn"
+msgstr "Växla sidomeny"

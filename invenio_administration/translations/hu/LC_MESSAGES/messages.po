@@ -6,6 +6,7 @@
 # 
 # Translators:
 # Andrea Dömötör, 2022
+# Dorottya Szemigán, 2023
 # 
 #, fuzzy
 msgid ""
@@ -14,8 +15,8 @@ msgstr ""
 "Report-Msgid-Bugs-To: info@inveniosoftware.org\n"
 "POT-Creation-Date: 2022-10-12 09:22+0200\n"
 "PO-Revision-Date: 2022-10-12 07:22+0000\n"
-"Last-Translator: Andrea Dömötör, 2022\n"
-"Language-Team: Hungarian (https://www.transifex.com/inveniosoftware/teams/23537/hu/)\n"
+"Last-Translator: Dorottya Szemigán, 2023\n"
+"Language-Team: Hungarian (https://app.transifex.com/inveniosoftware/teams/23537/hu/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -72,7 +73,7 @@ msgstr "Üdvözöljük az Invenio Administration felületén"
 
 #: invenio_administration/templates/semantic-ui/invenio_administration/index.html:30
 msgid "My managment tool"
-msgstr "Kezelő eszközeim"
+msgstr "Kezelőeszközeim"
 
 #: invenio_administration/templates/semantic-ui/invenio_administration/macros.html:14
 msgid "Back"

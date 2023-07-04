@@ -7,7 +7,7 @@
 # Translators:
 # Bessem Aamira <bessemamira@gmail.com>, 2022
 # Tibor Simko <tibor.simko@cern.ch>, 2022
-# Salaheddine Ben Ali <salaheddine.benali@cnudst.tn>, 2022
+# Salaheddine Ben Ali <salaheddine.benali@cnudst.tn>, 2023
 # 
 #, fuzzy
 msgid ""
@@ -16,8 +16,8 @@ msgstr ""
 "Report-Msgid-Bugs-To: info@inveniosoftware.org\n"
 "POT-Creation-Date: 2022-10-12 09:22+0200\n"
 "PO-Revision-Date: 2022-10-12 07:22+0000\n"
-"Last-Translator: Salaheddine Ben Ali <salaheddine.benali@cnudst.tn>, 2022\n"
-"Language-Team: Arabic (https://www.transifex.com/inveniosoftware/teams/23537/ar/)\n"
+"Last-Translator: Salaheddine Ben Ali <salaheddine.benali@cnudst.tn>, 2023\n"
+"Language-Team: Arabic (https://app.transifex.com/inveniosoftware/teams/23537/ar/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -27,11 +27,11 @@ msgstr ""
 
 #: invenio_administration/errors.py:21
 msgid "Invalid resource {resource} configured for view {view}."
-msgstr "تمّت تهيئة مورد غير صالح {مورد} للعرض {عرض}."
+msgstr "تمّت تهيئة مورد غير صالح {resource} للعرض {view}."
 
 #: invenio_administration/errors.py:35
 msgid "No extension found with name '{extension_name}' ."
-msgstr "لا يوجد إمتداد بإسم '{إسم_الإمتداد}'."
+msgstr "لا يوجد إمتداد بإسم '{extension_name}'."
 
 #: invenio_administration/errors.py:47
 msgid "Invalid actions configuration, order or schema missing"
@@ -39,20 +39,19 @@ msgstr "إجراءات التهيئة غير صالحة، الترتيب أو ا
 
 #: invenio_administration/errors.py:57
 msgid "Cannot instantiate resource view {name} without a resource."
-msgstr "لا يمكن إنشاء مثيل عرض مورد {الإسم} بدون مورد."
+msgstr "لا يمكن إنشاء مثيل عرض مورد {name} بدون مورد."
 
 #: invenio_administration/errors.py:72
 msgid ""
 "Cannot instantiate resource view {name} without an associated flask "
 "extension."
 msgstr ""
-"لا يمكن إنشاء مثيل عرض مورد {الإسم} ليس مرتبطا بإمتداد فلاسك flask "
-"extension."
+"لا يمكن إنشاء مثيل عرض مورد {name} ليس مرتبطا بإمتداد فلاسك flask extension."
 
 #: invenio_administration/errors.py:87
 msgid ""
 "Cannot instantiate administration view {name} without a default GET view"
-msgstr "لا يمكن إنشاء مثيل تصرّف في عرض {الإسم} بدون default GET view."
+msgstr "لا يمكن إنشاء مثيل تصرّف في عرض {name} بدون default GET view."
 
 #: invenio_administration/menu/menu.py:75
 #, python-format

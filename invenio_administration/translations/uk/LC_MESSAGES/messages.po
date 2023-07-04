@@ -4,6 +4,9 @@
 # invenio-administration project.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
 # 
+# Translators:
+# Vasyl Ostrovskyi <vasyusya@yahoo.com>, 2023
+# 
 #, fuzzy
 msgid ""
 msgstr ""
@@ -11,7 +14,8 @@ msgstr ""
 "Report-Msgid-Bugs-To: info@inveniosoftware.org\n"
 "POT-Creation-Date: 2022-10-12 09:22+0200\n"
 "PO-Revision-Date: 2022-10-12 07:22+0000\n"
-"Language-Team: Ukrainian (https://www.transifex.com/inveniosoftware/teams/23537/uk/)\n"
+"Last-Translator: Vasyl Ostrovskyi <vasyusya@yahoo.com>, 2023\n"
+"Language-Team: Ukrainian (https://app.transifex.com/inveniosoftware/teams/23537/uk/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -85,11 +89,11 @@ msgstr ""
 
 #: invenio_administration/templates/semantic-ui/invenio_administration/header/header.html:43
 msgid "Menu"
-msgstr ""
+msgstr "Меню"
 
 #: invenio_administration/templates/semantic-ui/invenio_administration/header/header.html:61
 msgid "Close menu"
-msgstr ""
+msgstr "Закрити меню"
 
 #: invenio_administration/templates/semantic-ui/invenio_administration/header/header.html:70
 msgid "Administration dashboard"
@@ -101,11 +105,11 @@ msgstr ""
 
 #: invenio_administration/templates/semantic-ui/invenio_administration/header/header_login.html:17
 msgid "Log in"
-msgstr ""
+msgstr "Увійти"
 
 #: invenio_administration/templates/semantic-ui/invenio_administration/header/header_login.html:21
 msgid "Sign up"
-msgstr ""
+msgstr "Зареєструватись"
 
 #: invenio_administration/templates/semantic-ui/invenio_administration/header/header_login.html:32
 #: invenio_administration/templates/semantic-ui/invenio_administration/header/header_login.html:41
@@ -114,18 +118,18 @@ msgstr ""
 
 #: invenio_administration/templates/semantic-ui/invenio_administration/header/header_login.html:38
 msgid "Actions"
-msgstr ""
+msgstr "Дії"
 
 #: invenio_administration/templates/semantic-ui/invenio_administration/header/header_login.html:52
 #: invenio_administration/templates/semantic-ui/invenio_administration/header/header_login.html:93
 msgid "My account"
-msgstr ""
+msgstr "Мій обліковий запис"
 
 #: invenio_administration/templates/semantic-ui/invenio_administration/header/header_login.html:87
 #: invenio_administration/templates/semantic-ui/invenio_administration/header/header_login.html:116
 #: invenio_administration/templates/semantic-ui/invenio_administration/header/header_login.html:123
 msgid "Log out"
-msgstr ""
+msgstr "Вийти"
 
 #: invenio_administration/templates/semantic-ui/invenio_administration/header/side_bar_toggle.html:1
 msgid "Toggle side menu"
