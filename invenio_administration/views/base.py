@@ -282,7 +282,6 @@ class AdminResourceDetailView(AdminResourceBaseView):
             "resource_name": (
                 self.resource_name if self.resource_name else self.pid_path
             ),
-            "request_headers": self.request_headers,
         }
 
     def get(self, pid_value=None):

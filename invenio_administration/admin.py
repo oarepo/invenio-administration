@@ -15,7 +15,7 @@ from werkzeug.utils import import_string
 
 from invenio_administration.menu import AdminMenu
 
-from .views.base import AdminResourceListView, AdminView
+from .views.base import AdminFormView, AdminResourceDetailView, AdminView
 
 
 class Administration:
