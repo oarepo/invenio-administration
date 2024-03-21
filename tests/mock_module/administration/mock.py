@@ -2,15 +2,13 @@
 #
 # This file is part of Invenio.
 # Copyright (C) 2022 CERN.
+# Copyright (C) 2024 Graz University of Technology.
 #
 # Invenio is free software; you can redistribute it and/or modify it
 # under the terms of the MIT License; see LICENSE file for more details.
 """Mock view for testing."""
 
-from invenio_administration.views.base import (
-    AdminResourceDetailView,
-    AdminResourceListView,
-)
+from invenio_administration.views.base import AdminResourceListView
 
 
 class MockView(AdminResourceListView):
