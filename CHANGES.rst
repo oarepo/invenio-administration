@@ -8,6 +8,11 @@
 Changes
 =======
 
+Version 2.2.0 (released 2024-03-22)
+
+- fix: before_first_request deprecation (move to finalize app entry point)
+- installation: upgrade invenio-app and invenio-base
+
 Version 2.1.1 (released 2024-03-04)
 
 - bump react-invenio-forms
