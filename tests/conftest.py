@@ -171,7 +171,7 @@ def client_with_login(client, admin):
 @pytest.fixture
 def current_admin_menu(test_app):
     """Current Admin flask menu instance."""
-    return test_app.extensions["menu"]
+    return test_app.extensions["menu"].root_node
 
 
 @pytest.fixture
