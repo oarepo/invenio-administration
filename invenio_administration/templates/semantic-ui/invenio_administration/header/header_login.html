@@ -24,24 +24,6 @@
         </form>
     {%- else %}
 
-        <div role="menuitem" aria-labelledby="create-menu" class="ui dropdown floating rel-p-1 pr-15 computer only">
-            <i class="fitted plus icon inverted" aria-hidden="true"></i>
-            <i class="fitted dropdown icon inverted" aria-hidden="true"></i>
-            <div id="create-menu" class="menu">
-              <a class="item"
-                  href="{{ url_for('administration.oaipmh_create') }}">{{ _('New OAI-PMH set') }}
-              </a>
-            </div>
-        </div>
-
-        <div class="sub-menu mobile tablet only">
-          <h2 class="ui small header">{{ _('Actions') }}</h2>
-            <a role="menuitem" class="item" href="{{ url_for('administration.oaipmh_create') }}">
-              <i class="plus icon" aria-hidden="true"></i>
-              {{ _('New OAI-PMH set') }}
-            </a>
-        </div>
-
         {%- if config.USERPROFILES %}
           <div role="menuitem" id="user-profile-dropdown" class="ui floating dropdown computer only">
             <button id="user-profile-dropdown-btn"

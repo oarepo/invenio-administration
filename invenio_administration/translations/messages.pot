@@ -105,11 +105,6 @@ msgstr ""
 msgid "Sign up"
 msgstr ""
 
-#: invenio_administration/templates/semantic-ui/invenio_administration/header/header_login.html:32
-#: invenio_administration/templates/semantic-ui/invenio_administration/header/header_login.html:41
-msgid "New OAI-PMH set"
-msgstr ""
-
 #: invenio_administration/templates/semantic-ui/invenio_administration/header/header_login.html:38
 msgid "Actions"
 msgstr ""
