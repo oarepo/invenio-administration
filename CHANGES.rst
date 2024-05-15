@@ -8,6 +8,10 @@
 Changes
 =======
 
+Version 2.2.1 (released 2024-05-15)
+
+- remove implicit dependency on oai_pmh view
+
 Version 2.2.0 (released 2024-03-22)
 
 - fix: before_first_request deprecation (move to finalize app entry point)
