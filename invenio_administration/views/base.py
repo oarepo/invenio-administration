@@ -386,6 +386,7 @@ class AdminResourceListView(AdminResourceBaseView):
         return self.available_facets
 
     def get_context(self, **kwargs):
+        """Create details view context."""
         search_conf = self.init_search_config()
         schema = self.get_service_schema()
         serialized_schema = self._schema_to_json(schema)
@@ -413,7 +414,7 @@ class AdminResourceListView(AdminResourceBaseView):
 
     def get(self, **kwargs):
         """GET view method."""
-        return self.render(**self.get_context(**kwargs))        
+        return self.render(**self.get_context(**kwargs))
 
 
 class AdminResourceViewSet:
