@@ -385,32 +385,35 @@ class AdminResourceListView(AdminResourceBaseView):
             return self.resource.service.config.search.facets
         return self.available_facets
 
-    def get(self):
-        """GET view method."""
+    def get_context(self, **kwargs):
         search_conf = self.init_search_config()
         schema = self.get_service_schema()
         serialized_schema = self._schema_to_json(schema)
-        return self.render(
-            **{
-                "search_config": search_conf,
-                "title": self.title,
-                "name": self.name,
-                "resource_schema": serialized_schema,
-                "fields": self.item_field_list,
-                "display_search": self.display_search,
-                "display_create": self.display_create,
-                "display_edit": self.display_edit,
-                "display_delete": self.display_delete,
-                "display_read": self.display_read,
-                "actions": self.serialize_actions(),
-                "pid_path": self.pid_path,
-                "create_ui_endpoint": self.get_create_view_endpoint(),
-                "list_ui_endpoint": self.get_list_view_endpoint(),
-                "resource_name": (
-                    self.resource_name if self.resource_name else self.pid_path
-                ),
-            }
-        )
+        pid_value = kwargs.get("pid_value", "")
+        return {
+            "search_config": search_conf,
+            "title": self.title,
+            "name": self.name,
+            "resource_schema": serialized_schema,
+            "fields": self.item_field_list,
+            "display_search": self.display_search,
+            "display_create": self.display_create,
+            "display_edit": self.display_edit,
+            "display_delete": self.display_delete,
+            "display_read": self.display_read,
+            "actions": self.serialize_actions(),
+            "pid_path": self.pid_path,
+            "pid_value": pid_value,
+            "create_ui_endpoint": self.get_create_view_endpoint(),
+            "list_ui_endpoint": self.get_list_view_endpoint(),
+            "resource_name": (
+                self.resource_name if self.resource_name else self.pid_path
+            ),
+        }
+
+    def get(self, **kwargs):
+        """GET view method."""
+        return self.render(**self.get_context(**kwargs))        
 
 
 class AdminResourceViewSet:
