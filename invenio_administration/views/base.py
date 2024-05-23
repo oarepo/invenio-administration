@@ -195,7 +195,7 @@ class AdminResourceBaseView(AdminView):
         """
         return jsonify_schema(schema)
 
-    def get_api_endpoint(self):
+    def get_api_endpoint(self, **kwargs):
         """Get search API endpoint."""
         api_url_prefix = current_app.config["SITE_API_URL"]
         slash_tpl = "/" if not self.api_endpoint.startswith("/") else ""
@@ -352,25 +352,25 @@ class AdminResourceListView(AdminResourceBaseView):
 
     search_request_headers = {"Accept": "application/json"}
 
-    def get_search_request_headers(self):
+    def get_search_request_headers(self, **kwargs):
         """Get search request headers."""
         return self.search_request_headers
 
-    def get_search_app_name(self):
+    def get_search_app_name(self, **kwargs):
         """Get search app name."""
         if self.search_config_name is None:
             return f"{self.name.upper()}_SEARCH"
         return self.search_config_name
 
-    def init_search_config(self):
+    def init_search_config(self, **kwargs):
         """Build search view config."""
         return partial(
             search_app_config,
-            config_name=self.get_search_app_name(),
+            config_name=self.get_search_app_name(**kwargs),
             available_facets=current_app.config.get(self.search_facets_config_name),
             sort_options=current_app.config[self.search_sort_config_name],
-            endpoint=self.get_api_endpoint(),
-            headers=self.get_search_request_headers(),
+            endpoint=self.get_api_endpoint(**kwargs),
+            headers=self.get_search_request_headers(**kwargs),
         )
 
     def get_sort_options(self):
@@ -387,7 +387,7 @@ class AdminResourceListView(AdminResourceBaseView):
 
     def get_context(self, **kwargs):
         """Create details view context."""
-        search_conf = self.init_search_config()
+        search_conf = self.init_search_config(**kwargs)
         schema = self.get_service_schema()
         serialized_schema = self._schema_to_json(schema)
         pid_value = kwargs.get("pid_value", "")
