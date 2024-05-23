@@ -8,6 +8,10 @@
 Changes
 =======
 
+Version 2.2.2 (released 2024-05-23)
+
+- views: allow list view to receive a pid_value
+
 Version 2.2.1 (released 2024-05-15)
 
 - remove implicit dependency on oai_pmh view
