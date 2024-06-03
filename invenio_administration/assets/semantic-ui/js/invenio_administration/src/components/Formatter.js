@@ -44,7 +44,11 @@ Formatter.propTypes = {
   resourceSchema: PropTypes.object.isRequired,
   result: PropTypes.object.isRequired,
   property: PropTypes.string.isRequired,
-  fieldSchema: PropTypes.object.isRequired,
+  fieldSchema: PropTypes.object,
+};
+
+Formatter.defaultProps = {
+  fieldSchema: {},
 };
 
 export default Formatter;
