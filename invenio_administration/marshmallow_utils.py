@@ -40,6 +40,7 @@ custom_mapping = {
     fields.Date: "date",
     fields.TimeDelta: "timedelta",
     fields.Decimal: "decimal",
+    fields.Enum: "string",
     # TODO: This is needed for the is_current_user in the administration
     # of the user resources. It might be better to implement also a handler for this.
     # See https://github.com/inveniosoftware/invenio-administration/issues/174
