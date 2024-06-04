@@ -8,6 +8,12 @@
 Changes
 =======
 
+Version 2.3.0 (released 2024-06-04)
+
+- installation: upgrade invenio-records-resources and invenio-vocabularies
+- marshmallow_utils: add enum to mapping
+- ui: remove required restriction on fieldSchema
+
 Version 2.2.3 (released 2024-05-24)
 
 - views: accept kwars to be passed to get_api_endpoint
