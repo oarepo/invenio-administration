@@ -110,6 +110,7 @@ const mapFormFields = (obj, parentField, isCreate, formFieldsConfig, dropDumpOnl
 
     if (fieldSchema.type === "bool") {
       const description = fieldProps.description;
+
       return (
         <>
           <BooleanField
@@ -134,7 +135,7 @@ const mapFormFields = (obj, parentField, isCreate, formFieldsConfig, dropDumpOnl
       );
     }
 
-    if (fieldSchema.type === "object") {
+    if (fieldSchema.type === "object" && fieldSchema.metadata?.type !== "json") {
       // nested fields
       return (
         <React.Fragment key={fieldProps.fieldPath}>
@@ -169,7 +170,10 @@ const mapFormFields = (obj, parentField, isCreate, formFieldsConfig, dropDumpOnl
     }
 
     const rows = formFieldsConfig[fieldName]?.rows || fieldSchema?.metadata?.rows;
-    if (fieldSchema.type === "string" && rows) {
+    if (
+      (fieldSchema.type === "string" && rows) ||
+      fieldSchema.metadata?.type === "json"
+    ) {
       return (
         <TextArea
           key={fieldProps.fieldPath}
