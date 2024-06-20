@@ -8,6 +8,10 @@
 Changes
 =======
 
+Version 2.4.0 (released 2024-06-20)
+
+- form: added support for json fields
+
 Version 2.3.0 (released 2024-06-04)
 
 - installation: upgrade invenio-records-resources and invenio-vocabularies
