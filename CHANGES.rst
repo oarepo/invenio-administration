@@ -8,6 +8,10 @@
 Changes
 =======
 
+Version 2.2.4 (released 2024-06-27)
+
+- fix: default value depends on type
+
 Version 2.2.3 (released 2024-05-24)
 
 - views: accept kwars to be passed to get_api_endpoint
