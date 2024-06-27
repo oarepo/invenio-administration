@@ -26,6 +26,12 @@ export class AdminForm extends Component {
             if (defaultValue) {
               return defaultValue;
             }
+            if (value.type === "bool") {
+              return false;
+            }
+            if (value.type === "object") {
+              return null;
+            }
             return "";
           }),
     };
