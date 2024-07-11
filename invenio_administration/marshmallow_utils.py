@@ -8,20 +8,9 @@
 
 """Invenio administration marshmallow utils module."""
 
-from invenio_vocabularies.services.schema import (
-    BaseVocabularySchema,
-    ContribVocabularyRelationSchema,
-    VocabularyRelationSchema,
-)
 from marshmallow import fields
 from marshmallow_utils import fields as invenio_fields
 from marshmallow_utils.fields import EDTFDateString, EDTFDateTimeString
-
-vocabulary_schemas = [
-    ContribVocabularyRelationSchema,
-    BaseVocabularySchema,
-    VocabularyRelationSchema,
-]
 
 custom_mapping = {
     # marshmallow
@@ -118,11 +107,7 @@ def jsonify_schema(schema):
         }
 
         if nested_field:
-            if any([isinstance(field_type.schema, x) for x in vocabulary_schemas]):
-                schema_type = "vocabulary"
-            else:
-                schema_type = "object"
-
+            schema_type = getattr(field_type.schema, "administration_schema_type", "object")
             schema_dict[field].update(
                 {
                     "type": schema_type,
@@ -131,11 +116,14 @@ def jsonify_schema(schema):
             )
         elif list_field and isinstance(field_type.inner, fields.Nested):
             # list of objects (vocabularies or nested)
+            schema_type = getattr(
+                field_type.inner.schema, "administration_schema_type", "object"
+            )
             schema_dict[field].update(
                 {
                     "type": "array",
                     "items": {
-                        "type": "object",
+                        "type": schema_type,
                         "properties": jsonify_schema(field_type.inner.schema),
                     },
                 }
