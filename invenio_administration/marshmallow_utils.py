@@ -107,7 +107,9 @@ def jsonify_schema(schema):
         }
 
         if nested_field:
-            schema_type = getattr(field_type.schema, "administration_schema_type", "object")
+            schema_type = getattr(
+                field_type.schema, "administration_schema_type", "object"
+            )
             schema_dict[field].update(
                 {
                     "type": schema_type,
