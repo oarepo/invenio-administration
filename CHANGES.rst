@@ -8,6 +8,12 @@
 Changes
 =======
 
+Version v2.4.1 (released 2024-07-15)
+
+- global: remove dependency on invenio-vocabularies
+    * Delegates administration UI schema type definition to the mashmallow
+      class.
+
 Version 2.4.0 (released 2024-06-20)
 
 - form: added support for json fields
