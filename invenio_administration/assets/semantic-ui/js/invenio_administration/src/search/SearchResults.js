@@ -34,7 +34,11 @@ export const SearchResults = ({ paginationOptions, currentResultsState }) => {
           <Grid.Column width={4}>
             <Count
               label={() => (
-                <>{i18next.t("{{count}} results found", { count: total })}</>
+                <>
+                  {i18next.t("{{count}} results found", {
+                    count: total.toLocaleString(i18next.language),
+                  })}
+                </>
               )}
             />
           </Grid.Column>
