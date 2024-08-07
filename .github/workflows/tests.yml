@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 #
 # This file is part of Invenio.
-# Copyright (C) 2022 CERN.
+# Copyright (C) 2022-2024 CERN.
 #
 # Invenio is free software; you can redistribute it and/or modify
 # it under the terms of the MIT License; see LICENSE file for more details.
@@ -10,9 +10,12 @@ name: CI
 
 on:
   push:
-    branches: main
+    branches:
+    - main
   pull_request:
-    branches: main
+    branches:
+    - main
+    - "maint-**"
   schedule:
     # * is a special character in YAML so you have to quote this string
     - cron:  '0 3 * * 6'
@@ -24,67 +27,11 @@ on:
         default: 'Manual trigger'
 
 jobs:
-  tests:
-    runs-on: ubuntu-20.04
-    strategy:
-      fail-fast: false
-      matrix:
-        python-version: ['3.9', '3.10', '3.11', '3.12']
-        db-service: [postgresql14]
-        search-service: [opensearch2,elasticsearch7]
-        node-version: [18.x, 20.x]
-        include:
+  Python:
+    uses: inveniosoftware/workflows/.github/workflows/tests-python.yml@master
 
-        - search-service: opensearch2
-          SEARCH_EXTRAS: "opensearch2"
-
-        - search-service: elasticsearch7
-          SEARCH_EXTRAS: "elasticsearch7"
-
-    env:
-      CACHE: ${{ matrix.cache-service }}
-      DB: ${{ matrix.db-service }}
-      MQ: ${{ matrix.mq-service }}
-      SEARCH: ${{ matrix.search-service }}
-      EXTRAS: tests,${{matrix.SEARCH_EXTRAS}}
-
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v4
-        with:
-          node-version: ${{ matrix.node-version }}
-
-      - name: Run eslint test
-        run: ./run-js-linter.sh -i
-
-      - name: Set up Python ${{ matrix.python-version }}
-        uses: actions/setup-python@v5
-        with:
-          python-version: ${{ matrix.python-version }}
-          cache: pip
-          cache-dependency-path: setup.cfg
-
-      - name: Install dependencies
-        run: |
-          pip install ".[$EXTRAS]"
-          pip freeze
-          docker --version
-          docker-compose --version
-
-      - name: Run backend tests
-        run: ./run-tests.sh
-
-      - name: Install deps for frontend tests
-        working-directory: ./invenio_administration/assets/semantic-ui/js/invenio_administration
-        run: npm install
-
-      - name: Install deps for frontend tests - translations
-        working-directory: ./invenio_administration/assets/semantic-ui/translations/invenio_administration
-        run: npm install
-
-      - name: Run frontend tests
-        working-directory: ./invenio_administration/assets/semantic-ui/js/invenio_administration
-        run: npm test
+  JS:
+    uses: inveniosoftware/workflows/.github/workflows/tests-js.yml@master
+    with:
+      js-working-directory: ./invenio_administration/assets/semantic-ui/js/invenio_administration
+      translations-working-directory: ./invenio_administration/assets/semantic-ui/translations/invenio_administration
