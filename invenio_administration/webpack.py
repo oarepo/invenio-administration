@@ -34,7 +34,7 @@ theme = WebpackThemeBundle(
                 "prop-types": "^15.7.2",
                 "react-copy-to-clipboard": "^5.0.0",
                 "react-i18next": "^11.11.0",
-                "react-invenio-forms": "^3.0.0",
+                "react-invenio-forms": "^4.0.0",
                 "react-searchkit": "^2.0.0",
                 "yup": "^0.32.0",
                 "formik": "^2.2.9",
