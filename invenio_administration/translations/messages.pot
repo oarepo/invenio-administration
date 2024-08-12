@@ -1,50 +1,50 @@
 # Translations template for invenio-administration.
-# Copyright (C) 2022 CERN
+# Copyright (C) 2024 CERN
 # This file is distributed under the same license as the
 # invenio-administration project.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2024.
 #
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: invenio-administration 0.1.6\n"
+"Project-Id-Version: invenio-administration 2.4.1\n"
 "Report-Msgid-Bugs-To: info@inveniosoftware.org\n"
-"POT-Creation-Date: 2022-10-12 09:22+0200\n"
+"POT-Creation-Date: 2024-08-12 10:05+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.10.3\n"
+"Generated-By: Babel 2.16.0\n"
 
-#: invenio_administration/errors.py:21
+#: invenio_administration/errors.py:22
 msgid "Invalid resource {resource} configured for view {view}."
 msgstr ""
 
-#: invenio_administration/errors.py:35
+#: invenio_administration/errors.py:36
 msgid "No extension found with name '{extension_name}' ."
 msgstr ""
 
-#: invenio_administration/errors.py:47
+#: invenio_administration/errors.py:48
 msgid "Invalid actions configuration, order or schema missing"
 msgstr ""
 
-#: invenio_administration/errors.py:57
+#: invenio_administration/errors.py:58
 msgid "Cannot instantiate resource view {name} without a resource."
 msgstr ""
 
-#: invenio_administration/errors.py:72
+#: invenio_administration/errors.py:73
 msgid ""
 "Cannot instantiate resource view {name} without an associated flask "
 "extension."
 msgstr ""
 
-#: invenio_administration/errors.py:87
+#: invenio_administration/errors.py:86
 msgid "Cannot instantiate administration view {name} without a default GET view"
 msgstr ""
 
-#: invenio_administration/menu/menu.py:75
+#: invenio_administration/menu/menu.py:82
 #, python-format
 msgid "%(icon)s Administration"
 msgstr ""
@@ -105,18 +105,14 @@ msgstr ""
 msgid "Sign up"
 msgstr ""
 
-#: invenio_administration/templates/semantic-ui/invenio_administration/header/header_login.html:38
-msgid "Actions"
-msgstr ""
-
-#: invenio_administration/templates/semantic-ui/invenio_administration/header/header_login.html:52
-#: invenio_administration/templates/semantic-ui/invenio_administration/header/header_login.html:93
+#: invenio_administration/templates/semantic-ui/invenio_administration/header/header_login.html:34
+#: invenio_administration/templates/semantic-ui/invenio_administration/header/header_login.html:75
 msgid "My account"
 msgstr ""
 
-#: invenio_administration/templates/semantic-ui/invenio_administration/header/header_login.html:87
-#: invenio_administration/templates/semantic-ui/invenio_administration/header/header_login.html:116
-#: invenio_administration/templates/semantic-ui/invenio_administration/header/header_login.html:123
+#: invenio_administration/templates/semantic-ui/invenio_administration/header/header_login.html:69
+#: invenio_administration/templates/semantic-ui/invenio_administration/header/header_login.html:98
+#: invenio_administration/templates/semantic-ui/invenio_administration/header/header_login.html:105
 msgid "Log out"
 msgstr ""
 
