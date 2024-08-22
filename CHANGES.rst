@@ -8,6 +8,11 @@
 Changes
 =======
 
+Version v2.5.0 (released 2024-08-22)
+
+- package: bump react-invenio-forms
+- ui: add comma separator to admin result count
+
 Version v2.4.1 (released 2024-07-15)
 
 - global: remove dependency on invenio-vocabularies
