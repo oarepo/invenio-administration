@@ -76,7 +76,8 @@ export class ActionForm extends Component {
   };
 
   render() {
-    const { actionSchema, formFields, actionCancelCallback } = this.props;
+    const { actionSchema, formFields, actionCancelCallback, submitButtonText } =
+      this.props;
     const { loading, formData, error } = this.state;
     return (
       <Formik initialValues={formData} onSubmit={this.onSubmit}>
@@ -98,7 +99,7 @@ export class ActionForm extends Component {
 
             <Modal.Actions>
               <Button type="submit" primary form="action-form" loading={loading}>
-                {i18next.t("Save")}
+                {submitButtonText}
               </Button>
               <Button
                 onClick={actionCancelCallback}
@@ -122,8 +123,10 @@ ActionForm.propTypes = {
   actionSuccessCallback: PropTypes.func.isRequired,
   actionCancelCallback: PropTypes.func.isRequired,
   formFields: PropTypes.object,
+  submitButtonText: PropTypes.string,
 };
 
 ActionForm.defaultProps = {
   formFields: {},
+  submitButtonText: i18next.t("Save"),
 };

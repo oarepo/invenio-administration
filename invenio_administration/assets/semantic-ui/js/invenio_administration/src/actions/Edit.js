@@ -17,12 +17,10 @@ class EditCmp extends Component {
         content={disabledMessage}
         disabled={!disabled}
         trigger={
-          <span className="mr-5">
-            <Button as="a" disabled={disabled} href={editUrl} icon labelPosition="left">
-              <Icon name="pencil" />
-              {i18next.t("Edit")}
-            </Button>
-          </span>
+          <Button as="a" disabled={disabled} href={editUrl} icon labelPosition="left">
+            <Icon name="pencil" />
+            {i18next.t("Edit")}
+          </Button>
         }
       />
     );
