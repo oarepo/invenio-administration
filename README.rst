@@ -27,3 +27,4 @@ TODO: Please provide feature overview of module
 
 Further documentation is available on
 https://invenio-administration.readthedocs.io/
+
