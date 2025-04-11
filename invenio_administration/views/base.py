@@ -227,7 +227,9 @@ class AdminResourceBaseView(AdminView):
             serialized_actions[key] = {**value}
 
             if value.get("submit_button_text") is not None:
-                serialized_actions[key]["submit_button_text"] = value["submit_button_text"]
+                serialized_actions[key]["submit_button_text"] = value[
+                    "submit_button_text"
+                ]
 
             if value["payload_schema"] is not None:
                 serialized_actions[key]["payload_schema"] = self._schema_to_json(
