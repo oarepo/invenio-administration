@@ -35,6 +35,7 @@ export class ActionFormLayout extends Component {
           <>
             <Modal.Content>
               <SemanticForm as={Form} id="action-form" onSubmit={props.handleSubmit}>
+                {actionConfig.description && <p>{i18next.t(actionConfig.description)}</p>}
                 <GenerateForm
                   jsonSchema={actionSchema}
                   formFields={actionSchema}
@@ -51,7 +52,7 @@ export class ActionFormLayout extends Component {
 
             <Modal.Actions>
               <Button type="submit" primary form="action-form" loading={loading}>
-                {i18next.t(actionConfig.text)}
+                {i18next.t(actionConfig.submit_button_text || actionConfig.text)}
               </Button>
               <Button
                 onClick={actionCancelCallback}
