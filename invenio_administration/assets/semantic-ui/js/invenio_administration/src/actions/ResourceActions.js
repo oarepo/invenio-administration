@@ -8,10 +8,13 @@ import PropTypes from "prop-types";
 import { Button, Modal, Icon } from "semantic-ui-react";
 import { ActionForm } from "../formik";
 import ActionModal from "./ActionModal";
+import _get from "lodash/get";
 import _isEmpty from "lodash/isEmpty";
 import Overridable from "react-overridable";
+import { InvenioAdministrationActionsApi } from "../api";
 
 const ResourceActions = ({ resource, successCallback, actions, Element = Button }) => {
+  const [loading, setLoading] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
   const [modalHeader, setModalHeader] = useState(undefined);
   const [modalBody, setModalBody] = useState(undefined);
@@ -22,12 +25,55 @@ const ResourceActions = ({ resource, successCallback, actions, Element = Button 
     setModalBody(undefined);
   }, []);
 
-  const onModalClose = useCallback(() => {
-    setModalOpen(false);
-    setModalHeader(undefined);
-    setModalBody(undefined);
-    successCallback();
-  }, [successCallback]);
+  const onModalClose = useCallback(
+    (data) => {
+      setModalOpen(false);
+      setModalHeader(undefined);
+      setModalBody(undefined);
+      if (data?.redirect) {
+        window.location.href = data.redirect;
+        return;
+      }
+      successCallback();
+    },
+    [successCallback]
+  );
+
+  // TODO: duplicated from ActionForm - needs refactoring/merge
+  const getEndpoint = useCallback(
+    (actionKey) => {
+      let endpoint = _get(resource, `links.actions[${actionKey}]`);
+      // endpoint can be also within links, not links.action
+      if (_isEmpty(endpoint)) {
+        endpoint = _get(resource, `links[${actionKey}]`);
+      }
+      if (!endpoint) {
+        console.error("Action endpoint not found in the resource!");
+      }
+      return endpoint;
+    },
+    [resource]
+  );
+
+  const onActionSubmit = useCallback(
+    async (actionKey) => {
+      setLoading(true);
+      try {
+        const response = await InvenioAdministrationActionsApi.resourceAction(
+          getEndpoint(actionKey)
+        );
+        // keep buttons disabled while the browser navigates away
+        if (!response.data?.redirect) {
+          setLoading(false);
+        }
+        onModalClose(response.data);
+      } catch (e) {
+        console.error(e);
+        setLoading(false);
+      }
+    },
+    [getEndpoint, onModalClose]
+  );
 
   const onModalTriggerClick = useCallback(
     (payloadSchema, dataName, dataActionKey) => {
@@ -66,15 +112,19 @@ const ResourceActions = ({ resource, successCallback, actions, Element = Button 
           <Element
             key={actionKey}
             onClick={() =>
-              onModalTriggerClick(
-                actionConfig.payload_schema,
-                actionConfig.text,
-                actionKey
-              )
+              _isEmpty(actionConfig.payload_schema)
+                ? onActionSubmit(actionKey)
+                : onModalTriggerClick(
+                    actionConfig.payload_schema,
+                    actionConfig.text,
+                    actionKey
+                  )
             }
             basic
             icon={!_isEmpty(icon)}
             labelPosition={labelPos}
+            loading={loading}
+            disabled={loading}
           >
             {!_isEmpty(icon) && <Icon name={icon} />}
             {actionConfig.text}...

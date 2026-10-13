@@ -39,6 +39,7 @@ export const ActionFormLayout = ({
               id="action-form"
               onSubmit={formikProps.handleSubmit}
             >
+              {actionConfig.description && <p>{i18next.t(actionConfig.description)}</p>}
               <GenerateForm
                 jsonSchema={actionSchema}
                 formFields={actionSchema}
@@ -61,7 +62,7 @@ export const ActionFormLayout = ({
               loading={loading}
               onClick={formikProps.submitForm}
             >
-              {i18next.t(actionConfig.text)}
+              {i18next.t(actionConfig.submit_button_text || actionConfig.text)}
             </Button>
             <Button
               onClick={actionCancelCallback}
